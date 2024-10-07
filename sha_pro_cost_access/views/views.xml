@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="product_product_form" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[@name='standard_price_uom']//span" position="attributes">
+                <attribute name="groups">sysgates_pro_barcodes.group_access_product_cost</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='default_code']" position="before">
+                <div name="pricing11" class="o_row" groups="sha_pro_cost_access.group_access_product_cost"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="product_template_form" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[@name='standard_price_uom']//span" position="attributes">
+                <attribute name="groups">sysgates_pro_barcodes.group_access_product_cost</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_id']" position="before">
+                <div name="pricing11" class="o_row" groups="sha_pro_cost_access.group_access_product_cost"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='order_line']//tree//field[@name='purchase_price']" position="attributes">
+                <attribute name="groups">!sha_pro_cost_access.group_access_product_cost</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
