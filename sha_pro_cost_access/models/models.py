@@ -8,6 +8,8 @@ class SaleOrderLine(models.Model):
 
     cost_readonly = fields.Boolean(compute='_compute_cost_readonly')
 
+    @api.depends('order_id')
+    @api.depends_context('uid')
     def _compute_cost_readonly(self):
         user = self.env.user
         for rec in self:
@@ -22,6 +24,8 @@ class ProductProduct(models.Model):
 
     cost_readonly = fields.Boolean(compute='_compute_cost_readonly')
 
+    @api.depends('list_price')
+    @api.depends_context('uid')
     def _compute_cost_readonly(self):
         user = self.env.user
         for rec in self:
@@ -36,6 +40,8 @@ class ProductTemplate(models.Model):
 
     cost_readonly = fields.Boolean(compute='_compute_cost_readonly')
 
+    @api.depends('list_price')
+    @api.depends_context('uid')
     def _compute_cost_readonly(self):
         user = self.env.user
         for rec in self:
