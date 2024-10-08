@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="group_access_product_cost" model="res.groups">
-        <field name="name">Hide Product Cost</field>
+        <field name="name">Product Cost Readonly</field>
     </record>
 
 </odoo>
