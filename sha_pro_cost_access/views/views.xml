@@ -8,11 +8,11 @@
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='default_code']" position="before">
-                <field name="cost_readonly" invisible="1"/>
+                <field name="cost_readonly" force_save = '1' invisible="1"/>
             </xpath>
 
             <xpath expr="//field[@name='standard_price']" position="attributes">
-                <attribute name="readonly">cost_readonly</attribute>
+                <attribute name="readonly">not cost_readonly</attribute>
             </xpath>
 
         </field>
@@ -26,11 +26,11 @@
 
 
             <xpath expr="//field[@name='default_code']" position="before">
-                <field name="cost_readonly" invisible="1"/>
+                <field name="cost_readonly" force_save = '1' invisible="1"/>
             </xpath>
 
             <xpath expr="//field[@name='standard_price']" position="attributes">
-                <attribute name="readonly">cost_readonly</attribute>
+                <attribute name="readonly">not cost_readonly</attribute>
             </xpath>
 
         </field>
@@ -44,11 +44,11 @@
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='order_line']//tree//field[@name='purchase_price']" position="before">
-                <field name="cost_readonly" column_invisible="1"/>
+                <field name="cost_readonly" force_save = '1' column_invisible="1"/>
             </xpath>
 
             <xpath expr="//field[@name='order_line']//tree//field[@name='purchase_price']" position="attributes">
-                <attribute name="readonly">cost_readonly</attribute>
+                <attribute name="readonly"> not cost_readonly</attribute>
             </xpath>
 
         </field>
