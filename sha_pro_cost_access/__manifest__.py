@@ -5,8 +5,8 @@
     "description": """
         This module contains adding access to product cost.
     """,
-    "author": "Khalid Shaheen",
-    "website": "+201552520894",
+    "author": "TechScope",
+    "website": "www.techscopeco.com",
     "depends": ["base", "sale_management", "sale"],
     "data": [
         # 'security/ir.model.access.csv',
