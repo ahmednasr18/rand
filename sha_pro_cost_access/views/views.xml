@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="product_product_form" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='default_code']" position="before">
+                <field name="cost_readonly" force_save='1' invisible="1" />
+            </xpath>
+
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="readonly">not cost_readonly</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="product_template_form" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+
+
+            <xpath expr="//field[@name='default_code']" position="before">
+                <field name="cost_readonly" force_save='1' invisible="1" />
+            </xpath>
+
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="readonly">not cost_readonly</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='order_line']//tree//field[@name='purchase_price']"
+                position="before">
+                <field name="cost_readonly" force_save='1' column_invisible="1" />
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']//tree//field[@name='purchase_price']"
+                position="attributes">
+                <attribute name="readonly"> not cost_readonly</attribute>
+            </xpath>
+
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="sale_margin_sale_order_line_inherit">
+        <field name="name">sale.order.line.margin.view.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_margin.sale_margin_sale_order_line" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']"
+                position="after">
+                <field name="cost_readonly" force_save='1' invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='purchase_price']"
+                position="attributes">
+                <attribute name="readonly"> not cost_readonly</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

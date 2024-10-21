@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sha_pro_cost_access_sha_pro_cost_access,sha_pro_cost_access.sha_pro_cost_access,model_sha_pro_cost_access_sha_pro_cost_access,base.group_user,1,1,1,1
