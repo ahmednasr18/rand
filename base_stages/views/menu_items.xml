@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem
+        id="menu_res_stage_root"
+        parent="base.next_id_9"
+        name="Stages"
+        sequence="100"
+        action="res_stage_action"
+    />
+
+</odoo>
